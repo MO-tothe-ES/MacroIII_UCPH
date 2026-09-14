@@ -829,7 +829,7 @@ Equilibrium
 \end_layout
 
 \begin_layout Standard
-We impose market clearing conditions
+We impose market clearing 
 \begin_inset Formula 
 \begin{align*}
 k_{t} & \equiv\frac{K_{t}}{L_{t}}=a_{t},\\
