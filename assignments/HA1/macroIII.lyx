@@ -428,6 +428,19 @@ c^{-\sigma}_{t}=\beta(1+r)c^{-\sigma}_{t+1},\label{eq:euler}
 
 \begin_layout Standard
 which is a nessesary condition for an internal optimal consumption path.
+ This has a very nice intepretation:
+ The marginal utility today (e.g.
+ 
+\begin_inset Formula $c^{-\sigma}_{t}$
+\end_inset
+
+) should equal the marginal utility of saving a little bit and spending it tomorrow (e.g.
+ 
+\begin_inset Formula $\text{\ensuremath{\beta(1+r)c^{-\sigma}_{t+1}}) from todays perspective}$
+\end_inset
+
+.
+ If that was not the case then the household could shift consumption and increase total utility.
 \end_layout
 
 \begin_layout Subsection
@@ -637,17 +650,215 @@ eqref{eq:budget}
  yields the consumption function
 \begin_inset Formula 
 \begin{align*}
-\left[\sum^{\infty}_{k=0}\left(\frac{\left(\beta(1+r)^{1/\sigma}\right)}{1+r}\right)^{k}\right]c_{0} & =\left(1-\frac{\left(\beta(1+r)^{1/\sigma}\right)}{1+r}\right)^{-1}c_{0}=(1+r)a_{0}+h_{0}\iff\\
-c_{0} & =\left(1-\frac{\left(\beta(1+r)^{1/\sigma}\right)}{1+r}\right)\left((1+r)a_{0}+h_{0}\right).
+\left[\sum^{\infty}_{k=0}\left(\frac{\left(\beta(1+r\right)^{1/\sigma}}{1+r}\right)^{k}\right]c_{0} & =\left(1-\frac{\left(\beta(1+r\right)^{1/\sigma}}{1+r}\right)^{-1}c_{0}=(1+r)a_{0}+h_{0}\iff
 \end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+c_{0}=\left(1-\frac{\left(\beta(1+r\right)^{1/\sigma}}{1+r}\right)\left((1+r)a_{0}+h_{0}\right).\label{eq:confunc}
+\end{equation}
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Standard
+Equation 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:confunc}
+\end_layout
+
+\end_inset
+
+ is the consumption function describing how consumption today (e.g.
+ period 0) depends on current assets (e.g.
+ 
+\begin_inset Formula $(1+r)a_{0}$
+\end_inset
+
+) and the total discounted income stream (e.g.
+ 
+\begin_inset Formula $h_{0}\equiv\sum^{\infty}_{k=0}(1+r)^{-k}y_{k}$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+For 
+\begin_inset Formula $\beta(1+r)=1$
+\end_inset
+
+ the Euler equation 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:euler}
+\end_layout
+
+\end_inset
+
+ implies 
+\begin_inset Formula 
+\[
+c^{-\sigma}_{t}=c^{-\sigma}_{t+1}\iff c_{t}=c_{t+1}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+That is,
+ stable consumption across all periods.
+ When 
+\begin_inset Formula $\beta(1+r)=1$
+\end_inset
+
+ we have that discounting due to delayed consumption is exactely offset by increased consumption in the next period due to the rent recieved by saving.
+ I think the assignment wants me to anwser PIH (the permanent income hypothesis) but I do not agree.
+ PIH refers to households making decisions based on their total future discounted cashflows.
+ This is captured in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:confunc}
+\end_layout
+
+\end_inset
+
+ but does not directly imply constant consumption as far as I understand.
+\end_layout
+
 \begin_layout Subsection
 Marginal Propensities to Consume (MPCs)
+\end_layout
+
+\begin_layout Standard
+Using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:confunc}
+\end_layout
+
+\end_inset
+
+ we calculate the MPCs of the model.
+ Firstly the MPC of a 
+\emph on
+one-of 
+\emph default
+or 
+\emph on
+windfall 
+\emph default
+income increase in any given period 
+\begin_inset Formula $t=k$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial c_{0}}{\partial y_{k}}=\left(1-\frac{\left(\beta(1+r\right)^{1/\sigma}}{1+r}\right)\left(\frac{1}{1+r}\right)^{k},
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and secondly a permant income increase (i.e.
+ where income in each period increases by the same amount)
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial c_{0}}{\partial\Delta y}\equiv\sum^{\infty}_{k=0}\frac{\partial c_{0}}{\partial y_{k}}=\left(1-\frac{\left(\beta(1+r\right)^{1/\sigma}}{1+r}\right)\frac{1}{1-(1+r)^{-1}}=\left(1-\frac{\left(\beta(1+r\right)^{1/\sigma}}{1+r}\right)\frac{1+r}{r}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that for 
+\begin_inset Formula $\beta(1+r)=1$
+\end_inset
+
+ where the Euler equation 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:euler}
+\end_layout
+
+\end_inset
+
+ implies that consumption is constant (as we saw before) we have 
+\begin_inset Formula $\frac{\partial c_{0}}{\partial\Delta y}=1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Using the provided calibration we obtain
+\begin_inset Formula 
+\[
+\frac{\partial c_{0}}{\partial y_{0}}=1-\frac{\left(0.95(1+0.04\right)^{1/2}}{1+0.04}\approx0.044,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\frac{\partial c_{0}}{\partial\Delta y}=\left(1-\frac{\left(0.95(1+0.04\right)^{1/2}}{1+0.04}\right)\frac{1+0.04}{0.04}\approx1.150.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The resulting MPCs are lower than any conventional empirical estimate and therefore the model is plausably wrong in some fundamental way.
+ One very economics coated argument could be that people are credit constrained in the real world.
+ This would make the MPCs for credit constrained people larger because they are below their unconstrained optimal consumption path.
+ Another classic explanation has to do with mortality risk:
+ people are always at risk of dying and if they dont fully care about their bequest as strongly as their own lived life,
+ then MPC out of current income will rise.
+ Simply because future states are discounted more heavily.
+\end_layout
+
+\begin_layout Standard
+My own speculation would be that people do not maximise in this way where they take the whole future path into account and just consume for the fun of it.
+ Evidence of this can be found in credit card transaction data where there are HUGE spikes around pay-day which would be hard to fit in a framework where households have diminishing marginal utility.
 \end_layout
 
 \begin_layout Section
@@ -816,7 +1027,7 @@ substituting the multipliers for
 
 \begin_inset Formula 
 \begin{equation}
-c^{-\sigma}_{t}=\beta(1+r)c^{-\sigma}_{t+1}.\label{eq:euler_ramsey}
+c^{-\sigma}_{t}=\beta\underbrace{(1+r_{t+1}-\delta)}_{R_{t+1}}c^{-\sigma}_{t+1}.\label{eq:euler_ramsey}
 \end{equation}
 
 \end_inset
@@ -825,16 +1036,23 @@ c^{-\sigma}_{t}=\beta(1+r)c^{-\sigma}_{t+1}.\label{eq:euler_ramsey}
 \end_layout
 
 \begin_layout Subsection
-Equilibrium
+Steady state concentration of capital
 \end_layout
 
 \begin_layout Standard
 We impose market clearing conditions
 \begin_inset Formula 
-\begin{align*}
-k_{t} & \equiv\frac{K_{t}}{L_{t}}=a_{t},\\
-c_{t} & =y_{t}\equiv\frac{AK^{\alpha}_{t}L^{1-\alpha}_{t}}{L_{t}}=Ak^{\alpha}_{t},
-\end{align*}
+\begin{align}
+a_{t}=k_{t} & \equiv\frac{K_{t}}{L_{t}},\label{eq:assetclear}
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+c_{t}=y_{t}\equiv\frac{AK^{\alpha}_{t}L^{1-\alpha}_{t}}{L_{t}}=Ak^{\alpha}_{t},\label{eq:varemkdclear}
+\end{equation}
 
 \end_inset
 
@@ -847,6 +1065,106 @@ for all
 \end_inset
 
 .
+ Using
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:assetclear}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:varemkdclear}
+\end_layout
+
+\end_inset
+
+ along with the steady state (SS) condition 
+\begin_inset Formula $x_{t}=x_{t+1}=x^{ss}$
+\end_inset
+
+ for 
+\begin_inset Formula $x\in{c,r,k}$
+\end_inset
+
+,
+ the household Euler equation 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:euler_ramsey}
+\end_layout
+
+\end_inset
+
+ and the FOC for firm profit optimization 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:ramsey_Kfoc}
+\end_layout
+
+\end_inset
+
+ we obtain steady state capital per hours worked:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+(c^{ss})^{-\sigma} & =\beta(1+r^{ss}-\delta)(c^{ss})^{-\sigma}\\
+ & =\beta(1+\alpha A\left(k^{ss}\right)^{\alpha-1}-\delta)(c^{ss})^{-\sigma}\iff\\
+\alpha A\left(k^{ss}\right)^{\alpha-1} & =\frac{1}{\beta}+\delta-1\iff\\
+k^{ss} & =\left(\frac{\alpha A}{\frac{1}{\beta}+\delta-1}\right)^{\frac{1}{1-\alpha}}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From here we use that 
+\begin_inset Formula $y_{t}=Ak^{\alpha}_{t}$
+\end_inset
+
+ as shown in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:varemkdclear}
+\end_layout
+
+\end_inset
+
+ and calculate the income capital ratio:
+\begin_inset Formula 
+\begin{equation}
+z^{ss}\equiv\frac{K^{ss}}{Y^{ss}}=\frac{k^{ss}}{y^{ss}}=\frac{k^{ss}}{A\left(k^{ss}\right)^{\alpha}}=\left(k^{ss}\right)^{1-\alpha}A^{-1}=\left(\left(\frac{\alpha A}{\frac{1}{\beta}+\delta-1}\right)^{\frac{1}{1-\alpha}}\right)^{1-\alpha}A^{-1}=\frac{\alpha}{\frac{1}{\beta}+\delta-1}
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
