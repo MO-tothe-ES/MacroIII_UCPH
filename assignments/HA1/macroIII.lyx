@@ -6,107 +6,98 @@
 \origin unavailable
 \textclass article
 \begin_preamble
-% ---------- Edit these ----------
+% ---------- Assignment ----------
 \newcommand{\assignmenttitle}{Consumption and Saving}
 \newcommand{\assignmentnumber}{Assignment 1}
 \newcommand{\coursename}{Macroeconomics III}
 \newcommand{\studentname}{Casper Moes, hwd362}
-\newcommand{\submissiondate}{14 September 2026}
+\newcommand{\submissiondate}{16 September 2026}
 
 % ---------- Typography ----------
 \usepackage[T1]{fontenc}
-\usepackage{kpfonts}
-\usepackage{microtype}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{amsmath,amssymb}
 
-\linespread{1.5}
+\usepackage{setspace}
+\onehalfspacing
+\AtBeginDocument{\fontsize{11}{13.2}\selectfont}
+
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.55em}
+\setlength{\parskip}{0.6em}
 \setlength{\emergencystretch}{2em}
-\renewcommand{\thesubsection}{\alph{subsection}}
 
-% ---------- Page layout ----------
-\usepackage{geometry}
-\geometry{
-  a4paper,
-  left=42mm,
-  right=42mm,
-  top=25mm,
-  bottom=27mm,
-  headheight=15pt,
-  headsep=10mm
-}
+% ---------- Layout ----------
+\usepackage[a4paper,margin=35mm]{geometry}
 
-% ---------- Restrained colours ----------
+% ---------- Blue palette ----------
 \usepackage{xcolor}
-\definecolor{accent}{HTML}{284B63}
-\definecolor{muted}{HTML}{737B82}
-\definecolor{rulegrey}{HTML}{DDE2E6}
+\definecolor{accent}{HTML}{2563EB}
+\definecolor{navy}{HTML}{153E75}
+\definecolor{muted}{HTML}{58779B}
 
-% ---------- Section headings ----------
+% ---------- Headings ----------
 \usepackage{titlesec}
 
 \titleformat{\section}
-  {\Large\bfseries\color{accent}}
-  {\thesection}{0.7em}{}
+  {\Large\sffamily\bfseries\color{navy}}
+  {\textcolor{accent}{\thesection}}{0.7em}{}
 
 \titleformat{\subsection}
-  {\large\bfseries\color{accent}}
-  {\thesubsection}{0.7em}{}
+  {\large\sffamily\bfseries\color{navy}}
+  {\textcolor{accent}{\thesubsection}}{0.7em}{}
 
 \titleformat{\subsubsection}
-  {\normalsize\bfseries}
-  {\thesubsubsection}{0.7em}{}
+  {\normalsize\sffamily\bfseries\color{navy}}
+  {\textcolor{accent}{\thesubsubsection}}{0.7em}{}
 
-\titlespacing*{\section}{0pt}{1.8em}{0.55em}
-\titlespacing*{\subsection}{0pt}{1.3em}{0.35em}
-\titlespacing*{\subsubsection}{0pt}{1em}{0.2em}
+\renewcommand{\thesubsection}{\alph{subsection}}
 
-% ---------- Quiet running header ----------
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
+\titlespacing*{\section}{0pt}{1.5em}{0.4em}
+\titlespacing*{\subsection}{0pt}{1em}{0.3em}
+\titlespacing*{\subsubsection}{0pt}{0.8em}{0.2em}
 
-\fancyhead[L]{\small\color{muted}\coursename}
-\fancyhead[R]{\small\color{muted}\studentname}
-\fancyfoot[C]{\small\color{muted}\thepage}
+% ---------- Page numbers ----------
+\pagestyle{plain}
 
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% First page: page number only
-\fancypagestyle{opening}{
-  \fancyhf{}
-  \fancyfoot[C]{\small\color{muted}\thepage}
-  \renewcommand{\headrulewidth}{0pt}
+% ---------- Blue links and references ----------
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=accent,
+  citecolor=accent,
+  urlcolor=accent,
+  filecolor=accent,
+  linktoc=all,
+  pdftitle={Consumption and Saving},
+  pdfauthor={Casper Moes}
 }
+\urlstyle{same}
 
-% ---------- Automatic title block ----------
+% ---------- Automatic title ----------
 \AtBeginDocument{
-  \thispagestyle{opening}
   \begingroup
-    \setlength{\parskip}{0pt}
+    \setstretch{1}
     \raggedright
+    \setlength{\parskip}{0pt}
 
-    {\small\scshape\color{accent}
+    {\small\bfseries\color{accent}
       \coursename\enspace / \enspace\assignmentnumber\par}
+
+    \vspace{0.7em}
+
+    {\fontsize{30}{35}\selectfont\bfseries\color{navy}
+      \assignmenttitle\par}
 
     \vspace{0.8em}
 
-    {\fontsize{29}{34}\selectfont\bfseries
-      \assignmenttitle\par}
+    {\small\color{navy}\studentname\par}
+    \vspace{0.3em}
+    {\small\color{muted}\submissiondate\par}
 
     \vspace{1em}
-
-    {\normalsize \studentname\par}
-    \vspace{0.2em}
-    {\small\color{muted}
-      University of Copenhagen
-      \enspace\textperiodcentered\enspace
-      \submissiondate\par}
-
-    \vspace{1.2em}
-    {\color{rulegrey}\hrule height 0.5pt}
-    \vspace{1.6em}
+    {\color{accent}\hrule height 1pt}
+    \vspace{1.5em}
   \endgroup
 }
 \end_preamble
@@ -285,7 +276,7 @@ where
 V(a_{t}) & \equiv\max_{\{c_{t+k},a_{t+1+k}\}^{\infty}_{k=0}}\underbrace{\left\{ \sum^{\infty}_{k=0}\beta^{k}\frac{c^{1-\sigma}_{t+k}}{1-\sigma}\right\} }_{U_{t}}\\
  & =\max_{\{c_{t+k},a_{t+1+k}\}^{\infty}_{k=0}}\left\{ \frac{c^{1-\sigma}_{t}}{1-\sigma}+\beta\sum^{\infty}_{k=0}\beta^{k}\frac{c^{1-\sigma}_{t+1+k}}{1-\sigma}\right\} \\
  & =\max_{c_{t},a_{t+1}}\left\{ \frac{c^{1-\sigma}_{t}}{1-\sigma}+\beta V(a_{t+1})\right\} \\
- & =\max_{a_{t+1}}\left\{ \frac{\left(y_{t}+(1+r)a_{t}-a_{t+1}\right)^{1-\sigma}}{1-\sigma}+\beta V(a_{t+1})\right\} 
+ & =\max_{a_{t+1}}\left\{ \frac{\left(y_{t}+(1+r)a_{t}-a_{t+1}\right)^{1-\sigma}}{1-\sigma}+\beta V(a_{t+1})\right\} .
 \end{align*}
 
 \end_inset
@@ -340,7 +331,7 @@ Define the optimal asset policy
  as the function that solves the Bellman equation:
 \begin_inset Formula 
 \[
-V(a_{t})=u\left(y_{t}+(1+r)a_{t}-g(a_{t})\right)+\beta V\left(g(a_{t})\right)
+V(a_{t})=u\left(y_{t}+(1+r)a_{t}-g(a_{t})\right)+\beta V\left(g(a_{t})\right).
 \]
 
 \end_inset
@@ -349,7 +340,7 @@ V(a_{t})=u\left(y_{t}+(1+r)a_{t}-g(a_{t})\right)+\beta V\left(g(a_{t})\right)
 \end_layout
 
 \begin_layout Standard
-differentiating wrt.
+Differentiating wrt.
  
 \begin_inset Formula $a_{t}$
 \end_inset
@@ -514,16 +505,13 @@ Iterating forward the budget constraint yields
 a_{t} & =(1+r)^{-1}\left(c_{t}-y_{t}\right)+(1+r)^{-1}a_{t+1}\\
  & =(1+r)^{-1}\left(c_{t}-y_{t}\right)+(1+r)^{-1}\left((1+r)^{-1}\left(c_{t+1}-y_{t+1}\right)+(1+r)^{-1}a_{t+2}\right)\\
  & =(1+r)^{-1}\left(c_{t}-y_{t}\right)+(1+r)^{-2}\left(c_{t+1}-y_{t+1}\right)+(1+r)^{-2}a_{t+2}\\
- & =(1+r)^{-1}\left(c_{t}-y_{t}\right)+(1+r)^{-1}+(1+r)^{-2}\left(c_{t+1}-y_{t+1}\right)+(1+r)^{-3}\left(c_{t+2}-y_{t+2}\right)+(1+r)^{-3}a_{t+3}\\
+ & =(1+r)^{-1}\left(c_{t}-y_{t}\right)+(1+r)^{-1}+(1+r)^{-2}\left(c_{t+1}-y_{t+1}\right)\\
+ & \qquad\qquad\qquad\qquad\qquad\qquad\qquad\quad+(1+r)^{-3}\left(c_{t+2}-y_{t+2}\right)+(1+r)^{-3}a_{t+3}\\
  & =\sum^{T}_{k=0}(1+r)^{-(k+1)}\left(c_{t+k}-y_{t+k}\right)+(1+r)^{-(T+1)}a_{T+1}.
 \end{align*}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Taking the limit 
 \begin_inset Formula $T\rightarrow\infty$
 \end_inset
@@ -798,10 +786,6 @@ and secondly a permant income increase (i.e.
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Note that for 
 \begin_inset Formula $\beta(1+r)=1$
 \end_inset
@@ -900,9 +884,6 @@ eqref{eq:firmmax}
 \end_inset
 
  has the following nessesary first order conditions for an internal optimum
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \frac{\partial\pi}{\partial K_{t}}=A\alpha K^{\alpha-1}_{t}L^{1-\alpha}_{t}-r_{t}=0\iff\alpha Ak^{\alpha-1}_{t}=r_{t},\label{eq:ramsey_Kfoc}
@@ -924,9 +905,9 @@ eqref{eq:firmmax}
 \begin_layout Standard
 The labor-income share is then
 \begin_inset Formula 
-\[
-\frac{w_{t}L_{t}}{AK^{\alpha}_{t}L^{1-\alpha}_{t}}=\frac{w_{t}}{Ak^{\alpha}_{t}}=\frac{(1-\alpha)Ak^{\alpha}_{t}}{Ak^{\alpha}_{t}}=(1-\alpha).
-\]
+\begin{equation}
+\frac{w_{t}L_{t}}{AK^{\alpha}_{t}L^{1-\alpha}_{t}}=\frac{w_{t}}{Ak^{\alpha}_{t}}=\frac{(1-\alpha)Ak^{\alpha}_{t}}{Ak^{\alpha}_{t}}=1-\alpha.\label{eq:laborincshare}
+\end{equation}
 
 \end_inset
 
@@ -935,6 +916,146 @@ The labor-income share is then
 
 \begin_layout Subsection
 Empirical labor-income
+\end_layout
+
+\begin_layout Standard
+The labour-income share for Poland and Belgium for the period 1995-2021 is graphed in figure 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+ref{fig:labincome}
+\end_layout
+
+\end_inset
+
+.
+ The average for Belgium is 0.564 and for Poland 0.443.
+ In the considered model this pins down 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ through 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:laborincshare}
+\end_layout
+
+\end_inset
+
+ so that
+\begin_inset Formula 
+\[
+0.564=1-\alpha^{BE}\iff\alpha^{BE}=0.436,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+0.443=1-\alpha^{PL}\iff\alpha^{PL}=0.557.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+
+\lang english
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang english
+\begin_inset Graphics
+	filename output/labour_income.png
+	scale 76
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Labour-income share for Poland and Belgium
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+hspace{10pt}
+\backslash
+small
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+Note:
+ The labour-income share is calculated as compensation of employees divided by gross value added,
+ both measured at current prices.
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+Source:
+ National accounts (COMP and VA_CP);
+ own calculations.
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:labincome"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1018,8 +1139,7 @@ substituting the multipliers for
  yields the consumption Euler equation
 \begin_inset Formula 
 \begin{align*}
-\frac{1}{1+n}\left(\beta^{t+1}(1+n)^{t+1}c^{-\sigma}_{t+1}\right)R_{t+1} & =\beta^{t}(1+n)^{t}c^{-\sigma}_{t}\\
- & \iff
+\frac{1}{1+n}\left(\beta^{t+1}(1+n)^{t+1}c^{-\sigma}_{t+1}\right)R_{t+1} & =\beta^{t}(1+n)^{t}c^{-\sigma}_{t}\iff
 \end{align*}
 
 \end_inset
@@ -1037,6 +1157,10 @@ c^{-\sigma}_{t}=\beta\underbrace{(1+r_{t+1}-\delta)}_{R_{t+1}}c^{-\sigma}_{t+1}.
 
 \begin_layout Subsection
 Steady state concentration of capital
+\end_layout
+
+\begin_layout Standard
+NEEDS WORK:
 \end_layout
 
 \begin_layout Standard
@@ -1123,9 +1247,6 @@ eqref{eq:ramsey_Kfoc}
 \end_inset
 
  we obtain steady state capital per hours worked:
-\end_layout
-
-\begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
 (c^{ss})^{-\sigma} & =\beta(1+r^{ss}-\delta)(c^{ss})^{-\sigma}\\
@@ -1159,7 +1280,7 @@ eqref{eq:varemkdclear}
  and calculate the income capital ratio:
 \begin_inset Formula 
 \begin{equation}
-z^{ss}\equiv\frac{K^{ss}}{Y^{ss}}=\frac{k^{ss}}{y^{ss}}=\frac{k^{ss}}{A\left(k^{ss}\right)^{\alpha}}=\left(k^{ss}\right)^{1-\alpha}A^{-1}=\left(\left(\frac{\alpha A}{\frac{1}{\beta}+\delta-1}\right)^{\frac{1}{1-\alpha}}\right)^{1-\alpha}A^{-1}=\frac{\alpha}{\frac{1}{\beta}+\delta-1}
+z^{ss}\equiv\frac{K^{ss}}{Y^{ss}}=\frac{k^{ss}}{y^{ss}}=\frac{k^{ss}}{A\left(k^{ss}\right)^{\alpha}}=\left(k^{ss}\right)^{1-\alpha}A^{-1}=\left(\left(\frac{\alpha A}{\frac{1}{\beta}+\delta-1}\right)^{\frac{1}{1-\alpha}}\right)^{1-\alpha}A^{-1}=\frac{\alpha}{\frac{1}{\beta}+\delta-1}\label{eq:capoutputratio}
 \end{equation}
 
 \end_inset
@@ -1168,7 +1289,174 @@ z^{ss}\equiv\frac{K^{ss}}{Y^{ss}}=\frac{k^{ss}}{y^{ss}}=\frac{k^{ss}}{A\left(k^{
 \end_layout
 
 \begin_layout Subsection
-Does the model hold up?
+Capital-output ratio
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+The average capital-output ratio is $z^{BE}=3.410$ for Belgium and $z^{PL}=1.576$ for Poland.
+ Assuming both economies are in SS,
+ we consider two cases.
+ Firstly,
+ if depreciation rates are identical,
+ we obtain 
+\backslash
+[
+\backslash
+frac{
+\backslash
+beta^{BE}}{
+\backslash
+beta^{PL}}=
+\backslash
+frac{1-
+\backslash
+delta+0.557/1.576}{1-
+\backslash
+delta+0.436/3.410}>1.
+\backslash
+] That is,
+ Belgian households must be more patient and therefore more willing to postpone consumption.
+ For a common annual depreciation rate of $
+\backslash
+delta=0.05$,
+ we obtain 
+\backslash
+[
+\backslash
+beta^{BE}=
+\backslash
+frac{1}{1-0.05+0.436/3.410}
+\backslash
+approx0.928,
+\backslash
+qquad
+\backslash
+beta^{PL}=
+\backslash
+frac{1}{1-0.05+0.557/1.576}
+\backslash
+approx0.767.
+\backslash
+] Secondly,
+ if discount factors are identical,
+ we obtain 
+\backslash
+[
+\backslash
+delta^{PL}-
+\backslash
+delta^{BE}=
+\backslash
+frac{0.557}{1.576}-
+\backslash
+frac{0.436}{3.410}
+\backslash
+approx0.226.
+\backslash
+] Poland's annual depreciation rate must therefore be approximately $22.6$ percentage points higher.
+ These are substantial differences requiring further justification,
+ although differences in capital composition could explain part of the depreciation gap.
+ Note also that the model assumes closed economies in SS,
+ so these implications need not hold in a richer open-economy framework.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+
+\lang english
+\begin_inset Float figure
+placement document
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+
+\lang english
+\begin_inset Graphics
+	filename output/cap_output.png
+	scale 76
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Capital output ratios for Poland and Belgium
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+hspace{10pt}
+\backslash
+small
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+Note:
+ The capital-output ratio is calculated as net capital stock divided by gross value added,
+ both measured in chain-linked volumes.
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+Source:
+ Capital accounts (Kq_GFCF) and national accounts (VA_Q);
+ own calculations.
+\end_layout
+
+\begin_layout Plain Layout
+
+\lang english
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:capoutputratio"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body
