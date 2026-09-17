@@ -6,18 +6,37 @@
 \origin unavailable
 \textclass article
 \begin_preamble
-% ---------- Assignment ----------
+% ============================================================
+%  MACROECONOMICS III — ASSIGNMENT STYLE
+% ============================================================
+
+% ---------- Assignment information ----------
 \newcommand{\assignmenttitle}{Consumption and Saving}
 \newcommand{\assignmentnumber}{Assignment 1}
 \newcommand{\coursename}{Macroeconomics III}
-\newcommand{\studentname}{Casper Moes, hwd362}
-\newcommand{\submissiondate}{16 September 2026}
+\newcommand{\studentname}{Casper Moes}
+\newcommand{\studentid}{hwd362}
+\newcommand{\submissiondate}{17 September 2026}
+
+% ---------- Page layout ----------
+\usepackage[
+  a4paper,
+  top=32mm,
+  bottom=30mm,
+  left=35mm,
+  right=35mm
+]{geometry}
+
+\raggedbottom
 
 % ---------- Typography ----------
 \usepackage[T1]{fontenc}
 \usepackage[scaled=0.95]{helvet}
 \renewcommand{\familydefault}{\sfdefault}
-\usepackage{amsmath,amssymb}
+
+\usepackage{microtype}
+\usepackage{mathtools}
+\usepackage{amssymb}
 
 \usepackage{setspace}
 \onehalfspacing
@@ -27,41 +46,125 @@
 \setlength{\parskip}{0.6em}
 \setlength{\emergencystretch}{2em}
 
-% ---------- Layout ----------
-\usepackage[a4paper,margin=35mm]{geometry}
-
-% ---------- Blue palette ----------
+% ---------- Colour palette ----------
 \usepackage{xcolor}
-\definecolor{accent}{HTML}{2563EB}
-\definecolor{navy}{HTML}{153E75}
-\definecolor{muted}{HTML}{58779B}
 
-% ---------- Headings ----------
+\definecolor{MacroBlue}{HTML}{2563EB}
+\definecolor{MacroNavy}{HTML}{16345B}
+\definecolor{MacroSlate}{HTML}{58708E}
+\definecolor{MacroLight}{HTML}{E8EEF7}
+\definecolor{MacroRule}{HTML}{CBD8E8}
+
+% Convenient semantic colour names
+\colorlet{accent}{MacroBlue}
+\colorlet{navy}{MacroNavy}
+\colorlet{muted}{MacroSlate}
+
+% ---------- Section headings ----------
 \usepackage{titlesec}
-
-\titleformat{\section}
-  {\Large\sffamily\bfseries\color{navy}}
-  {\textcolor{accent}{\thesection}}{0.7em}{}
-
-\titleformat{\subsection}
-  {\large\sffamily\bfseries\color{navy}}
-  {\textcolor{accent}{\thesubsection}}{0.7em}{}
-
-\titleformat{\subsubsection}
-  {\normalsize\sffamily\bfseries\color{navy}}
-  {\textcolor{accent}{\thesubsubsection}}{0.7em}{}
 
 \renewcommand{\thesubsection}{\alph{subsection}}
 
-\titlespacing*{\section}{0pt}{1.5em}{0.4em}
-\titlespacing*{\subsection}{0pt}{1em}{0.3em}
-\titlespacing*{\subsubsection}{0pt}{0.8em}{0.2em}
+\titleformat{\section}
+  {\Large\bfseries\color{navy}}
+  {\color{accent}\thesection}
+  {0.65em}
+  {}
+  [\vspace{0.15em}{\color{MacroRule}\titlerule[0.6pt]}]
 
-% ---------- Page numbers ----------
-\pagestyle{plain}
+\titleformat{\subsection}
+  {\large\bfseries\color{navy}}
+  {\color{accent}\thesubsection}
+  {0.65em}
+  {}
 
-% ---------- Blue links and references ----------
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\color{navy}}
+  {\color{accent}\thesubsubsection}
+  {0.65em}
+  {}
+
+\titlespacing*{\section}
+  {0pt}{1.7em}{0.55em}
+
+\titlespacing*{\subsection}
+  {0pt}{1.2em}{0.35em}
+
+\titlespacing*{\subsubsection}
+  {0pt}{0.9em}{0.25em}
+
+% ---------- Lists ----------
+\usepackage{enumitem}
+
+\setlist{
+  leftmargin=1.5em,
+  itemsep=0.25em,
+  topsep=0.35em,
+  parsep=0pt
+}
+
+\setlist[itemize,1]{
+  label=\textcolor{accent}{\small\raisebox{0.15ex}{\(\bullet\)}}
+}
+
+\setlist[enumerate,1]{
+  label=\textcolor{accent}{\arabic*.}
+}
+
+% ---------- Equations ----------
+\numberwithin{equation}{section}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\R}{\mathbb{R}}
+
+% Use for an especially important economic result:
+% \begin{keyresult}
+%   \[
+%     c_t = \cdots
+%   \]
+% \end{keyresult}
+\usepackage[most]{tcolorbox}
+
+\newtcolorbox{keyresult}{
+  enhanced,
+  breakable,
+  colback=MacroLight,
+  colframe=accent,
+  boxrule=0pt,
+  leftrule=2.5pt,
+  arc=1.5pt,
+  left=1em,
+  right=1em,
+  top=0.7em,
+  bottom=0.7em,
+  before skip=0.8em,
+  after skip=0.8em
+}
+
+% ---------- Header and page numbers ----------
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+\fancyfoot[L]{%
+  \footnotesize\color{muted}%
+  \coursename\enspace\textcolor{MacroRule}{/}\enspace\assignmentnumber
+}
+
+\fancyfoot[R]{%
+  \footnotesize\bfseries\color{navy}\thepage
+}
+
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{18mm}
+
+% ---------- Links and PDF metadata ----------
 \usepackage{hyperref}
+
 \hypersetup{
   colorlinks=true,
   linkcolor=accent,
@@ -69,35 +172,63 @@
   urlcolor=accent,
   filecolor=accent,
   linktoc=all,
-  pdftitle={Consumption and Saving},
-  pdfauthor={Casper Moes}
+  pdfborder={0 0 0},
+  pdftitle={\assignmenttitle},
+  pdfauthor={\studentname},
+  pdfsubject={\coursename\space--\space\assignmentnumber}
 }
+
 \urlstyle{same}
 
-% ---------- Automatic title ----------
-\AtBeginDocument{
+% ---------- Automatic title block ----------
+\AtBeginDocument{%
   \begingroup
     \setstretch{1}
     \raggedright
     \setlength{\parskip}{0pt}
 
-    {\small\bfseries\color{accent}
-      \coursename\enspace / \enspace\assignmentnumber\par}
+    % Course and assignment
+    {\small\bfseries\color{accent}%
+      \MakeUppercase{\coursename}%
+      \hfill
+      \MakeUppercase{\assignmentnumber}\par
+    }
 
-    \vspace{0.7em}
+    \vspace{1.1em}
 
-    {\fontsize{30}{35}\selectfont\bfseries\color{navy}
-      \assignmenttitle\par}
+    % Main title
+    {\fontsize{31}{35}\selectfont
+      \bfseries
+      \color{navy}
+      \assignmenttitle\par
+    }
 
-    \vspace{0.8em}
+    \vspace{0.85em}
 
-    {\small\color{navy}\studentname\par}
+    % Student information
+    {\small\bfseries\color{navy}%
+      \studentname
+      \enspace
+      \textcolor{MacroRule}{\textbullet}
+      \enspace
+      \studentid
+      \par
+    }
+
     \vspace{0.3em}
-    {\small\color{muted}\submissiondate\par}
 
-    \vspace{1em}
-    {\color{accent}\hrule height 1pt}
-    \vspace{1.5em}
+    {\small\color{muted}%
+      Submitted \submissiondate\par
+    }
+
+    \vspace{1.15em}
+
+    % Accent rule
+    \noindent
+    \textcolor{accent}{\rule{18mm}{2.2pt}}%
+    \textcolor{MacroRule}{\rule{\dimexpr\linewidth-18mm\relax}{0.6pt}}
+
+    \vspace{1.6em}
   \endgroup
 }
 \end_preamble
@@ -194,6 +325,8 @@
 \begin_body
 
 \begin_layout Standard
+
+\lang english
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
 
@@ -203,6 +336,8 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 \begin_inset ERT
 status open
 
@@ -218,18 +353,61 @@ newpage
 \end_layout
 
 \begin_layout Section
+
+\lang english
 MPC with infinite horizon
 \end_layout
 
+\begin_layout Standard
+
+\lang english
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:conssavings"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
+
+\lang english
 Deriving the Euler equation
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang english
 Bellman equation
 \end_layout
 
 \begin_layout Standard
+
+\lang english
+I solve this problem using dynamic programming.
+ You could also use Lagrange optimization as this is a static problem (everything is known at period 
+\begin_inset Formula $t=0$
+\end_inset
+
+) - this is done in section 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+ref{sec:ramsey}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
 The (representative) consumer faces the following utility maximization problem
 \begin_inset Formula 
 \begin{align*}
@@ -252,6 +430,8 @@ c_{t}+a_{t+1} & =y_{t}+(1+r)a_{t}
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 where 
 \begin_inset Formula $a_{0}$
 \end_inset
@@ -261,7 +441,7 @@ where
 \end_inset
 
 .
- First I derive the Bellman equation explicitely (for an arbitrary starting index 
+ First I derive the Bellman equation explicitly (for an arbitrary starting index 
 \begin_inset Formula $t$
 \end_inset
 
@@ -285,6 +465,8 @@ V(a_{t}) & \equiv\max_{\{c_{t+k},a_{t+1+k}\}^{\infty}_{k=0}}\underbrace{\left\{ 
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 The first order condition for an internal optima (for the right hand side) is given by
 \begin_inset Formula 
 \begin{equation}
@@ -297,12 +479,14 @@ The first order condition for an internal optima (for the right hand side) is gi
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 where we have defined 
 \begin_inset Formula $V_{a}(a_{t})\equiv\frac{\partial V}{\partial a_{t}}$
 \end_inset
 
 .
- By the envelope theorem (assuming 
+ By the envelope theorem (assuming the value function 
 \begin_inset Formula $V$
 \end_inset
 
@@ -319,11 +503,13 @@ V_{a}(a_{t+1})=(1+r)c^{-\sigma}_{t+1}.\label{eq:envelope}
 
 \begin_layout Subsubsection
 
-\series bold
-Proof of envelope theorem
+\lang english
+Short proof of the envelope theorem
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 Define the optimal asset policy 
 \begin_inset Formula $a^{*}_{t+1}=g(a_{t})$
 \end_inset
@@ -340,7 +526,13 @@ V(a_{t})=u\left(y_{t}+(1+r)a_{t}-g(a_{t})\right)+\beta V\left(g(a_{t})\right).
 \end_layout
 
 \begin_layout Standard
-Differentiating wrt.
+
+\lang english
+Differentiating 
+\begin_inset Formula $V$
+\end_inset
+
+ w.r.t.
  
 \begin_inset Formula $a_{t}$
 \end_inset
@@ -354,20 +546,18 @@ V_{a}(a_{t}) & =\underbrace{u'(c_{t})\left((1+r)-g'(a_{t})\right)}_{\text{gain d
 
 \end_inset
 
-
+q.e.d.
 \end_layout
 
 \begin_layout Standard
-Q.E.D.
-\end_layout
 
-\begin_layout Standard
+\lang english
 Intuitively 
 \begin_inset Formula $\left(\beta V_{a}\left(g(a_{t})\right)-u'(c_{t})\right)=0$
 \end_inset
 
- because the margianl gain of spending is equal the marginal gain of saving at the maximum.
- therefore shifting this a little bit does not matter for the value function.
+ because the marginal gain of spending is equal the marginal gain of saving at the maximum.
+ Therefore shifting this a little bit does not matter for the value function.
  So basically the increase in assets is distributed as utility gain due to increased current consumption and increased future savings,
  but disregarding the distribution over current and future consumption as this gives the same marginal utility at the maximum,
  which is 
@@ -378,10 +568,14 @@ Intuitively
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang english
 The Euler equation
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 Combining 
 \begin_inset ERT
 status open
@@ -418,8 +612,10 @@ c^{-\sigma}_{t}=\beta(1+r)c^{-\sigma}_{t+1},\label{eq:euler}
 \end_layout
 
 \begin_layout Standard
-which is a nessesary condition for an internal optimal consumption path.
- This has a very nice intepretation:
+
+\lang english
+which is a necessary condition for an internal optimal consumption path.
+ This has a very nice interpretation:
  The marginal utility today (e.g.
  
 \begin_inset Formula $c^{-\sigma}_{t}$
@@ -434,15 +630,98 @@ which is a nessesary condition for an internal optimal consumption path.
  If that was not the case then the household could shift consumption and increase total utility.
 \end_layout
 
+\begin_layout Standard
+
+\lang english
+Equation 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:euler}
+\end_layout
+
+\end_inset
+
+ also implies three cases for the consumption path.
+ (i) if 
+\begin_inset Formula $\beta(1+r)>0$
+\end_inset
+
+ then consumption will increase:
+\begin_inset Formula 
+\[
+\left(\frac{c_{t+1}}{c_{t}}\right)^{\sigma}=\beta(1+r)>1,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+remembering that 
+\begin_inset Formula $\sigma>1$
+\end_inset
+
+ is positive.
+ Here the household faces a choice each period of spending a little less but gaining more from increased future consumption through the rent (e.g.
+ 
+\begin_inset Formula $1+r$
+\end_inset
+
+) compared to their discount rate (e.g.
+ 
+\begin_inset Formula $\beta$
+\end_inset
+
+).
+ For 
+\begin_inset Formula $\beta(1+r)<1$
+\end_inset
+
+ the story is reversed (limiting consumption today will lead to less discounted future cash) so the consumption path is decreasing.
+ The case of constant consumption (e.g.
+ 
+\begin_inset Formula $\beta(1+r)$
+\end_inset
+
+) is discussed in section 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+ref{sec:conssavings}.
+\backslash
+ref{subsec:Consumption-function}.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
+
+\lang english
 The budget constraint
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang english
 Transversality condition
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 From the maximization problem we have the no ponzi-scheme condition
 \begin_inset Formula 
 \[
@@ -455,6 +734,14 @@ From the maximization problem we have the no ponzi-scheme condition
 \end_layout
 
 \begin_layout Standard
+
+\lang english
+which is a constraint imposed on the consumer to avoid the unrealistic case of infinite debt accumulation.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
 Because the utility function is monotone in consumption
 \begin_inset Formula 
 \[
@@ -467,6 +754,8 @@ Because the utility function is monotone in consumption
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 and the consumer gains no direct utility from assets
 \begin_inset Formula 
 \[
@@ -479,11 +768,15 @@ and the consumer gains no direct utility from assets
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 we conclude that the consumer would not increase savings indefinitely,
  and such the transversality condition is born
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 \begin_inset Formula 
 \begin{equation}
 \lim_{T\rightarrow\infty}\left((1+r)^{-(T+1)}\right)a_{T+1}=0.\label{eq:transversality}
@@ -495,10 +788,14 @@ we conclude that the consumer would not increase savings indefinitely,
 \end_layout
 
 \begin_layout Subsubsection
+
+\lang english
 Budget constraint
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 Iterating forward the budget constraint yields
 \begin_inset Formula 
 \begin{align*}
@@ -554,6 +851,8 @@ a_{0} & =\sum^{\infty}_{k=0}(1+r)^{-(k+1)}\left(c_{k}-y_{k}\right)+\lim_{T\right
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 where 
 \begin_inset Formula $h_{0}\equiv\sum^{\infty}_{k=0}(1+r)^{-k}y_{k}$
 \end_inset
@@ -563,10 +862,26 @@ where
 \end_layout
 
 \begin_layout Subsection
+
+\lang english
 Consumption function
 \end_layout
 
 \begin_layout Standard
+
+\lang english
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Consumption-function"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
 Firstly we rewrite the Euler equation 
 \begin_inset ERT
 status open
@@ -591,6 +906,8 @@ c^{-\sigma}_{t}=\beta(1+r)c^{-\sigma}_{t+1}\iff c_{t}=\left(\beta(1+r)\right)^{-
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 and derive the consumption at every period in terms of initial consumption 
 \begin_inset Formula $c_{0}$
 \end_inset
@@ -607,6 +924,8 @@ c_{t} & =\left(\beta(1+r)\right)^{1/\sigma}c_{t-1}=\left(\beta(1+r)\right)^{t/\s
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 Substituting 
 \begin_inset ERT
 status open
@@ -655,6 +974,8 @@ c_{0}=\left(1-\frac{\left(\beta(1+r\right)^{1/\sigma}}{1+r}\right)\left((1+r)a_{
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 Equation 
 \begin_inset ERT
 status open
@@ -683,6 +1004,8 @@ eqref{eq:confunc}
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 For 
 \begin_inset Formula $\beta(1+r)=1$
 \end_inset
@@ -711,16 +1034,30 @@ c^{-\sigma}_{t}=c^{-\sigma}_{t+1}\iff c_{t}=c_{t+1}.
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 That is,
  stable consumption across all periods.
  When 
 \begin_inset Formula $\beta(1+r)=1$
 \end_inset
 
- we have that discounting due to delayed consumption is exactely offset by increased consumption in the next period due to the rent recieved by saving.
- I think the assignment wants me to anwser PIH (the permanent income hypothesis) but I do not agree.
- PIH refers to households making decisions based on their total future discounted cashflows.
+ we have that discounting due to delayed consumption is exactly offset by increased consumption in the next period due to the rent received by saving.
+ I think the assignment wants me to answer PIH (the permanent income hypothesis) but I do not agree.
+ PIH refers to households making decisions based on their total future discounted cash-flows.
  This is captured in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:budget}
+\end_layout
+
+\end_inset
+
+ and 
 \begin_inset ERT
 status open
 
@@ -732,14 +1069,18 @@ eqref{eq:confunc}
 
 \end_inset
 
- but does not directly imply constant consumption as far as I understand.
+ but does not directly imply constant consumption - as far as my understanding goes.
 \end_layout
 
 \begin_layout Subsection
+
+\lang english
 Marginal Propensities to Consume (MPCs)
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 Using 
 \begin_inset ERT
 status open
@@ -777,7 +1118,9 @@ income increase in any given period
 \end_layout
 
 \begin_layout Standard
-and secondly a permant income increase (i.e.
+
+\lang english
+and secondly a permanent income increase (i.e.
  where income in each period increases by the same amount)
 \begin_inset Formula 
 \begin{equation}
@@ -811,6 +1154,8 @@ eqref{eq:euler}
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 Using the provided calibration we obtain
 \begin_inset Formula 
 \[
@@ -831,30 +1176,47 @@ Using the provided calibration we obtain
 \end_layout
 
 \begin_layout Standard
-The resulting MPCs are lower than any conventional empirical estimate and therefore the model is plausably wrong in some fundamental way.
+
+\lang english
+The resulting MPCs are lower than any conventional empirical estimate and therefore the model is plausibly wrong in some fundamental way.
  One very economics coated argument could be that people are credit constrained in the real world.
  This would make the MPCs for credit constrained people larger because they are below their unconstrained optimal consumption path.
  Another classic explanation has to do with mortality risk:
- people are always at risk of dying and if they dont fully care about their bequest as strongly as their own lived life,
+ people are always at risk of dying and if they do not fully care about their bequest as strongly as their own lived life,
  then MPC out of current income will rise.
  Simply because future states are discounted more heavily.
 \end_layout
 
 \begin_layout Standard
-My own speculation would be that people do not maximise in this way where they take the whole future path into account and just consume for the fun of it.
+
+\lang english
+My own speculation would be that people do not maximize in this way where they take the whole future path into account and just consume for the fun of it.
  Evidence of this can be found in credit card transaction data where there are HUGE spikes around pay-day which would be hard to fit in a framework where households have diminishing marginal utility.
 \end_layout
 
 \begin_layout Section
+
+\lang english
 The Ramsey model
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:ramsey"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
+
+\lang english
 Firms
 \end_layout
 
 \begin_layout Standard
-The firm maximises profit in each period (non-dynamically) subject to a Cobb-Douglas production technology.
+
+\lang english
+The firm maximizes profit in each period (non-dynamically) subject to a Cobb-Douglas production technology.
  Formally it solves:
 \begin_inset Formula 
 \begin{equation}
@@ -867,6 +1229,8 @@ The firm maximises profit in each period (non-dynamically) subject to a Cobb-Dou
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 \begin_inset Formula $\alpha\in(0,1)$
 \end_inset
 
@@ -883,7 +1247,7 @@ eqref{eq:firmmax}
 
 \end_inset
 
- has the following nessesary first order conditions for an internal optimum
+ has the following necessary first order conditions for an internal optimum
 \begin_inset Formula 
 \begin{equation}
 \frac{\partial\pi}{\partial K_{t}}=A\alpha K^{\alpha-1}_{t}L^{1-\alpha}_{t}-r_{t}=0\iff\alpha Ak^{\alpha-1}_{t}=r_{t},\label{eq:ramsey_Kfoc}
@@ -903,6 +1267,8 @@ eqref{eq:firmmax}
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 The labor-income share is then
 \begin_inset Formula 
 \begin{equation}
@@ -915,10 +1281,14 @@ The labor-income share is then
 \end_layout
 
 \begin_layout Subsection
+
+\lang english
 Empirical labor-income
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 The labour-income share for Poland and Belgium for the period 1995-2021 is graphed in figure 
 \begin_inset ERT
 status open
@@ -1059,11 +1429,15 @@ name "fig:labincome"
 \end_layout
 
 \begin_layout Subsection
+
+\lang english
 Households
 \end_layout
 
 \begin_layout Standard
-Households solve the following utility maximisation problem
+
+\lang english
+Households solve the following utility maximization problem
 \begin_inset Formula 
 \begin{align*}
 \max_{\{c_{t},a_{t+1}\}^{\infty}_{t=0}}U & =\sum^{\infty}_{t=0}\beta^{t}(1+n)^{t}\frac{c^{1-\sigma}_{t}}{1-\sigma}\\
@@ -1077,6 +1451,8 @@ Households solve the following utility maximisation problem
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 where 
 \begin_inset Formula $\sigma>0$
 \end_inset
@@ -1108,6 +1484,8 @@ where
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 with the first order conditions
 \begin_inset Formula 
 \[
@@ -1128,6 +1506,8 @@ with the first order conditions
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 substituting the multipliers for 
 \begin_inset Formula $\lambda_{t}=\beta^{t}(1+n)^{t}c^{-\sigma}_{t}$
 \end_inset
@@ -1155,12 +1535,59 @@ c^{-\sigma}_{t}=\beta\underbrace{(1+r_{t+1}-\delta)}_{R_{t+1}}c^{-\sigma}_{t+1}.
 
 \end_layout
 
+\begin_layout Standard
+The 
+\lang american
+interpretation
+\lang danish
+ of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:euler_ramsey}
+\end_layout
+
+\end_inset
+
+ very closely mirrors that of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+eqref{eq:euler}
+\end_layout
+
+\end_inset
+
+ with one distinction.
+ Now when households consider shifting consumption to future periods they must also take into account 
+\lang english
+deterioration
+\lang danish
+ of their invested capital (e.g.
+ 
+\begin_inset Formula $\delta$
+\end_inset
+
+).
+ Everything else is identical.
+\end_layout
+
 \begin_layout Subsection
+
+\lang english
 Steady state concentration of capital
 \end_layout
 
 \begin_layout Standard
-We impose market clearing conditions
+
+\lang english
+We impose the asset-market clearing condition
 \begin_inset Formula 
 \begin{align}
 a_{t}=k_{t} & \equiv\frac{K_{t}}{L_{t}},\label{eq:assetclear}
@@ -1169,17 +1596,11 @@ a_{t}=k_{t} & \equiv\frac{K_{t}}{L_{t}},\label{eq:assetclear}
 \end_inset
 
 
-\begin_inset Formula 
-\begin{equation}
-c_{t}=y_{t}\equiv\frac{AK^{\alpha}_{t}L^{1-\alpha}_{t}}{L_{t}}=Ak^{\alpha}_{t},\label{eq:varemkdclear}
-\end{equation}
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 for all 
 \begin_inset Formula $t\in\{0,1,\dots\}$
 \end_inset
@@ -1193,18 +1614,6 @@ status open
 
 \backslash
 eqref{eq:assetclear}
-\end_layout
-
-\end_inset
-
- and 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-\backslash
-eqref{eq:varemkdclear}
 \end_layout
 
 \end_inset
@@ -1257,26 +1666,37 @@ k^{ss} & =\left(\frac{\alpha A}{\frac{1}{\beta}+\delta-1}\right)^{\frac{1}{1-\al
 \end_layout
 
 \begin_layout Standard
-From here we use that 
-\begin_inset Formula $y_{t}=Ak^{\alpha}_{t}$
+
+\lang english
+Interpreting this we see that higher a depreciation rate (e.g.
+ 
+\begin_inset Formula $\delta$
 \end_inset
 
- as shown in 
-\begin_inset ERT
-status open
+) implies a lower 
+\begin_inset Formula $k^{ss}$
+\end_inset
 
-\begin_layout Plain Layout
+.
+ Intuitively this is because investments in capital becomes less attractive (less returns per period) and therefore the balance between consumption and savings (e.g.
+ investments) shifts implying lower 
+\begin_inset Formula $k^{ss}$
+\end_inset
 
-\backslash
-eqref{eq:varemkdclear}
+.
 \end_layout
 
+\begin_layout Standard
+
+\lang english
+From here we use that 
+\begin_inset Formula $y_{t}\equiv\frac{Y_{t}}{L_{t}}=\frac{AK^{\alpha}_{t}L^{1-\alpha}_{t}}{L_{t}}=Ak^{\alpha}_{t}$
 \end_inset
 
  and calculate the income capital ratio:
 \begin_inset Formula 
 \begin{equation}
-z^{ss}\equiv\frac{K^{ss}}{Y^{ss}}=\frac{k^{ss}}{y^{ss}}=\frac{k^{ss}}{A\left(k^{ss}\right)^{\alpha}}=\left(k^{ss}\right)^{1-\alpha}A^{-1}=\left(\left(\frac{\alpha A}{\frac{1}{\beta}+\delta-1}\right)^{\frac{1}{1-\alpha}}\right)^{1-\alpha}A^{-1}=\frac{\alpha}{\frac{1}{\beta}+\delta-1}\label{eq:capoutputratio}
+z^{ss}\equiv\frac{K^{ss}}{Y^{ss}}=\frac{k^{ss}}{y^{ss}}=\frac{k^{ss}}{A\left(k^{ss}\right)^{\alpha}}=\left(\left(\frac{\alpha A}{\frac{1}{\beta}+\delta-1}\right)^{\frac{1}{1-\alpha}}\right)^{1-\alpha}A^{-1}=\frac{\alpha}{\frac{1}{\beta}+\delta-1}.\label{eq:capoutputratio}
 \end{equation}
 
 \end_inset
@@ -1284,11 +1704,43 @@ z^{ss}\equiv\frac{K^{ss}}{Y^{ss}}=\frac{k^{ss}}{y^{ss}}=\frac{k^{ss}}{A\left(k^{
 
 \end_layout
 
+\begin_layout Standard
+
+\lang english
+Higher depreciation (e.g.
+ 
+\begin_inset Formula $\delta$
+\end_inset
+
+) increases the steady state capital-output ratio (e.g.
+ 
+\begin_inset Formula $z^{ss}$
+\end_inset
+
+).
+ This is because steady state capital (e.g.
+ 
+\begin_inset Formula $k^{ss}$
+\end_inset
+
+) decreases for higher depreciation and because of diminishing marginal returns to capital,
+ this lower lever of capital produce more output on average.
+ Thus 
+\begin_inset Formula $z^{ss}$
+\end_inset
+
+ increases.
+\end_layout
+
 \begin_layout Subsection
+
+\lang english
 Capital-output ratio
 \end_layout
 
 \begin_layout Standard
+
+\lang english
 \begin_inset ERT
 status open
 
