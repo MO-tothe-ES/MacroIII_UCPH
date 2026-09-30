@@ -6,229 +6,85 @@
 \origin unavailable
 \textclass article
 \begin_preamble
-% ============================================================
-%  MACROECONOMICS III — ASSIGNMENT STYLE
-% ============================================================
-
-% ---------- Assignment information ----------
+% Assignment details
 \newcommand{\assignmenttitle}{Consumption and Saving}
 \newcommand{\assignmentnumber}{Assignment 1}
 \newcommand{\coursename}{Macroeconomics III}
 \newcommand{\studentname}{Casper Moes}
 \newcommand{\studentid}{hwd362}
-\newcommand{\submissiondate}{17 September 2026}
+\newcommand{\submissiondate}{3. October 2026}
 
-% ---------- Page layout ----------
-\usepackage[
-  a4paper,
-  top=32mm,
-  bottom=30mm,
-  left=35mm,
-  right=35mm
-]{geometry}
-
-\raggedbottom
-
-% ---------- Typography ----------
+% Layout and typography
+\usepackage[left=4cm,right=4cm,top=3cm,bottom=3cm]{geometry}
 \usepackage[T1]{fontenc}
-\usepackage[scaled=0.95]{helvet}
-\renewcommand{\familydefault}{\sfdefault}
-
+\usepackage{mathtools,amssymb}
+\usepackage{amsthm}
+\usepackage{mathpazo} % Palatino text and matching mathematics
 \usepackage{microtype}
-\usepackage{mathtools}
-\usepackage{amssymb}
+
+% Theorems and proofs (English labels, regardless of document language)
+\newtheorem{theorem}{Theorem}[section]
+\AddToHook{env/proof/begin}{\renewcommand{\proofname}{Proof}}
 
 \usepackage{setspace}
 \onehalfspacing
-\AtBeginDocument{\fontsize{11}{13.2}\selectfont}
+\raggedbottom
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.6em}
+\setlength{\parskip}{0.5em}
 \setlength{\emergencystretch}{2em}
 
-% ---------- Colour palette ----------
-\usepackage{xcolor}
-
-\definecolor{MacroBlue}{HTML}{2563EB}
-\definecolor{MacroNavy}{HTML}{16345B}
-\definecolor{MacroSlate}{HTML}{58708E}
-\definecolor{MacroLight}{HTML}{E8EEF7}
-\definecolor{MacroRule}{HTML}{CBD8E8}
-
-% Convenient semantic colour names
-\colorlet{accent}{MacroBlue}
-\colorlet{navy}{MacroNavy}
-\colorlet{muted}{MacroSlate}
-
-% ---------- Section headings ----------
+% Headings
 \usepackage{titlesec}
-
 \renewcommand{\thesubsection}{\alph{subsection}}
-
 \titleformat{\section}
-  {\Large\bfseries\color{navy}}
-  {\color{accent}\thesection}
-  {0.65em}
-  {}
-  [\vspace{0.15em}{\color{MacroRule}\titlerule[0.6pt]}]
-
+  {\large\bfseries}{\thesection}{0.6em}{}
 \titleformat{\subsection}
-  {\large\bfseries\color{navy}}
-  {\color{accent}\thesubsection}
-  {0.65em}
-  {}
-
+  {\normalsize\bfseries}{\thesubsection)}{0.6em}{}
 \titleformat{\subsubsection}
-  {\normalsize\bfseries\color{navy}}
-  {\color{accent}\thesubsubsection}
-  {0.65em}
-  {}
+  {\normalsize\itshape}{\thesubsubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.5em}{0.4em}
+\titlespacing*{\subsection}{0pt}{1em}{0.25em}
+\titlespacing*{\subsubsection}{0pt}{0.8em}{0.2em}
 
-\titlespacing*{\section}
-  {0pt}{1.7em}{0.55em}
-
-\titlespacing*{\subsection}
-  {0pt}{1.2em}{0.35em}
-
-\titlespacing*{\subsubsection}
-  {0pt}{0.9em}{0.25em}
-
-% ---------- Lists ----------
+% Lists and equations
 \usepackage{enumitem}
-
-\setlist{
-  leftmargin=1.5em,
-  itemsep=0.25em,
-  topsep=0.35em,
-  parsep=0pt
-}
-
-\setlist[itemize,1]{
-  label=\textcolor{accent}{\small\raisebox{0.15ex}{\(\bullet\)}}
-}
-
-\setlist[enumerate,1]{
-  label=\textcolor{accent}{\arabic*.}
-}
-
-% ---------- Equations ----------
+\setlist{leftmargin=*,itemsep=0.15em,topsep=0.3em,parsep=0pt}
 \numberwithin{equation}{section}
 
 \newcommand{\E}{\mathbb{E}}
-\newcommand{\Var}{\operatorname{Var}}
-\newcommand{\Cov}{\operatorname{Cov}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
 \newcommand{\R}{\mathbb{R}}
 
-% Use for an especially important economic result:
-% \begin{keyresult}
-%   \[
-%     c_t = \cdots
-%   \]
-% \end{keyresult}
-\usepackage[most]{tcolorbox}
+% Optional emphasis for a main result
+\newenvironment{keyresult}
+  {\par\addvspace{0.5em}\noindent\textbf{Key result.}\enspace\ignorespaces}
+  {\par\addvspace{0.5em}\ignorespacesafterend}
 
-\newtcolorbox{keyresult}{
-  enhanced,
-  breakable,
-  colback=MacroLight,
-  colframe=accent,
-  boxrule=0pt,
-  leftrule=2.5pt,
-  arc=1.5pt,
-  left=1em,
-  right=1em,
-  top=0.7em,
-  bottom=0.7em,
-  before skip=0.8em,
-  after skip=0.8em
-}
-
-% ---------- Header and page numbers ----------
-\usepackage{fancyhdr}
-
-\pagestyle{fancy}
-\fancyhf{}
-
-\fancyfoot[L]{%
-  \footnotesize\color{muted}%
-  \coursename\enspace\textcolor{MacroRule}{/}\enspace\assignmentnumber
-}
-
-\fancyfoot[R]{%
-  \footnotesize\bfseries\color{navy}\thepage
-}
-
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-\setlength{\footskip}{18mm}
-
-% ---------- Links and PDF metadata ----------
-\usepackage{hyperref}
-
+% Page numbers and links
+\pagestyle{plain}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
 \hypersetup{
-  colorlinks=true,
-  linkcolor=accent,
-  citecolor=accent,
-  urlcolor=accent,
-  filecolor=accent,
-  linktoc=all,
-  pdfborder={0 0 0},
   pdftitle={\assignmenttitle},
   pdfauthor={\studentname},
   pdfsubject={\coursename\space--\space\assignmentnumber}
 }
-
 \urlstyle{same}
 
-% ---------- Automatic title block ----------
+% Compact automatic title
 \AtBeginDocument{%
   \begingroup
     \setstretch{1}
-    \raggedright
     \setlength{\parskip}{0pt}
-
-    % Course and assignment
-    {\small\bfseries\color{accent}%
-      \MakeUppercase{\coursename}%
-      \hfill
-      \MakeUppercase{\assignmentnumber}\par
-    }
-
-    \vspace{1.1em}
-
-    % Main title
-    {\fontsize{31}{35}\selectfont
-      \bfseries
-      \color{navy}
-      \assignmenttitle\par
-    }
-
-    \vspace{0.85em}
-
-    % Student information
-    {\small\bfseries\color{navy}%
-      \studentname
-      \enspace
-      \textcolor{MacroRule}{\textbullet}
-      \enspace
-      \studentid
-      \par
-    }
-
-    \vspace{0.3em}
-
-    {\small\color{muted}%
-      Submitted \submissiondate\par
-    }
-
-    \vspace{1.15em}
-
-    % Accent rule
-    \noindent
-    \textcolor{accent}{\rule{18mm}{2.2pt}}%
-    \textcolor{MacroRule}{\rule{\dimexpr\linewidth-18mm\relax}{0.6pt}}
-
-    \vspace{1.6em}
+    \raggedright
+    {\small\coursename\enspace/\enspace\assignmentnumber\par}
+    \vspace{0.6em}
+    {\LARGE\bfseries\assignmenttitle\par}
+    \vspace{0.6em}
+    {\small\studentname\enspace(\studentid)\hfill\submissiondate\par}
+    \vspace{1.5em}
   \endgroup
 }
 \end_preamble
@@ -259,7 +115,7 @@
 \index_command default
 \float_placement class
 \float_alignment class
-\paperfontsize default
+\paperfontsize 12
 \spacing single
 \use_hyperref false
 \papersize default
@@ -453,10 +309,10 @@ where
 )
 \begin_inset Formula 
 \begin{align*}
-V(a_{t}) & \equiv\max_{\{c_{t+k},a_{t+1+k}\}^{\infty}_{k=0}}\underbrace{\left\{ \sum^{\infty}_{k=0}\beta^{k}\frac{c^{1-\sigma}_{t+k}}{1-\sigma}\right\} }_{U_{t}}\\
- & =\max_{\{c_{t+k},a_{t+1+k}\}^{\infty}_{k=0}}\left\{ \frac{c^{1-\sigma}_{t}}{1-\sigma}+\beta\sum^{\infty}_{k=0}\beta^{k}\frac{c^{1-\sigma}_{t+1+k}}{1-\sigma}\right\} \\
- & =\max_{c_{t},a_{t+1}}\left\{ \frac{c^{1-\sigma}_{t}}{1-\sigma}+\beta V(a_{t+1})\right\} \\
- & =\max_{a_{t+1}}\left\{ \frac{\left(y_{t}+(1+r)a_{t}-a_{t+1}\right)^{1-\sigma}}{1-\sigma}+\beta V(a_{t+1})\right\} .
+V_{t}(a_{t}) & \equiv\max_{\{c_{t+k},a_{t+1+k}\}^{\infty}_{k=0}}\underbrace{\left\{ \sum^{\infty}_{k=0}\beta^{k}\frac{c^{1-\sigma}_{t+k}}{1-\sigma}\right\} }_{U_{t}}\\
+ & =\max_{\{c_{t+k},a_{t+1+k}\}^{\infty}_{k=0}}\left\{ \frac{c^{1-\sigma}_{t}}{1-\sigma}+\beta\sum^{\infty}_{k=0}\beta^{k}\frac{c^{1-\sigma}_{t+k+1}}{1-\sigma}\right\} \\
+ & =\max_{c_{t},a_{t+1}}\left\{ \frac{c^{1-\sigma}_{t}}{1-\sigma}+\beta V_{t+1}(a_{t+1})\right\} \\
+ & =\max_{a_{t+1}}\left\{ \frac{\left(y_{t}+(1+r)a_{t}-a_{t+1}\right)^{1-\sigma}}{1-\sigma}+\beta V_{t+1}(a_{t+1})\right\} .
 \end{align*}
 
 \end_inset
@@ -470,7 +326,7 @@ V(a_{t}) & \equiv\max_{\{c_{t+k},a_{t+1+k}\}^{\infty}_{k=0}}\underbrace{\left\{ 
 The first order condition for an internal optima (for the right hand side) is given by
 \begin_inset Formula 
 \begin{equation}
-\underbrace{\left(y_{t}+(1+r)a_{t}-a_{t+1}\right)^{-\sigma}}_{c_{t}}=\beta V_{a}(a_{t+1}),\label{eq:foc}
+\underbrace{\left(y_{t}+(1+r)a_{t}-a_{t+1}\right)^{-\sigma}}_{u'(c_{t})}=\beta V'_{t+1}(a_{t+1}),\label{eq:foc}
 \end{equation}
 
 \end_inset
@@ -482,18 +338,38 @@ The first order condition for an internal optima (for the right hand side) is gi
 
 \lang english
 where we have defined 
-\begin_inset Formula $V_{a}(a_{t})\equiv\frac{\partial V}{\partial a_{t}}$
+\begin_inset Formula $V'_{t+1}(a_{t+1})\equiv\frac{\partial V_{t+1}}{\partial a_{t+1}}(a_{t+1})$
 \end_inset
 
 .
- By the envelope theorem (assuming the value function 
-\begin_inset Formula $V$
+ By the envelope theorem 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+ref{thm:env}
+\end_layout
+
 \end_inset
 
- is differentiable) we have
+ (assuming the value function 
+\begin_inset Formula $V_{t}$
+\end_inset
+
+ is differentiable in 
+\begin_inset Formula $a_{t}$
+\end_inset
+
+ for all 
+\begin_inset Formula $t$
+\end_inset
+
+) we have
 \begin_inset Formula 
 \begin{equation}
-V_{a}(a_{t+1})=(1+r)c^{-\sigma}_{t+1}.\label{eq:envelope}
+V'_{t}(a_{t})=(1+r)\underbrace{c^{-\sigma}_{t}}_{u'(c_{t})}.\label{eq:envelope}
 \end{equation}
 
 \end_inset
@@ -501,23 +377,114 @@ V_{a}(a_{t+1})=(1+r)c^{-\sigma}_{t+1}.\label{eq:envelope}
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Standard
+\begin_inset ERT
+status open
 
-\lang english
-Short proof of the envelope theorem
+\begin_layout Plain Layout
+
+\backslash
+begin{theorem}[The envelope theorem]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+label{thm:env}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Suppose the household's optimal saving choice is interior and its policy and value functions are differentiable.
+ Then the marginal value of assets is
+\begin_inset Formula 
+\[
+V_{t}'(a_{t})=(1+r)u'(c_{t}),
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For CRRA utility,
+ this becomes
+\begin_inset Formula 
+\[
+V_{t}'(a_{t})=(1+r)c^{-\sigma}_{t}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus,
+ the marginal value of assets equals the additional resources they generate,
+ 
+\begin_inset Formula $1+r$
+\end_inset
+
+,
+ multiplied by the marginal utility of current consumption.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 
 \lang english
 Define the optimal asset policy 
-\begin_inset Formula $a^{*}_{t+1}=g(a_{t})$
+\begin_inset Formula $a^{*}_{t+1}=g_{t}(a_{t})$
 \end_inset
 
- as the function that solves the Bellman equation:
+ as the function that solves the Bellman equation from earlier:
 \begin_inset Formula 
 \[
-V(a_{t})=u\left(y_{t}+(1+r)a_{t}-g(a_{t})\right)+\beta V\left(g(a_{t})\right).
+V_{t}(a_{t})=u\left(y_{t}+(1+r)a_{t}-g_{t}(a_{t})\right)+\beta V_{t+1}\left(g_{t}(a_{t})\right).
 \]
 
 \end_inset
@@ -529,7 +496,7 @@ V(a_{t})=u\left(y_{t}+(1+r)a_{t}-g(a_{t})\right)+\beta V\left(g(a_{t})\right).
 
 \lang english
 Differentiating 
-\begin_inset Formula $V$
+\begin_inset Formula $V_{t}$
 \end_inset
 
  w.r.t.
@@ -540,27 +507,57 @@ Differentiating
  yields
 \begin_inset Formula 
 \begin{align*}
-V_{a}(a_{t}) & =\underbrace{u'(c_{t})\left((1+r)-g'(a_{t})\right)}_{\text{gain due to increased current consumption}}+\underbrace{\beta V_{a}\left(g(a_{t})\right)g'(a_{t})}_{\text{gain due to increased savings}}\\
- & =(1+r)u'(c_{t})+g'(a)\underbrace{\left(\beta V_{a}\left(g(a_{t})\right)-u'(c_{t})\right)}_{=0\text{ (because of FOC)}}.
+V'_{t}(a_{t}) & =\underbrace{u'(c_{t})\left((1+r)-g'_{t}(a_{t})\right)}_{\text{gain due to increased current consumption}}+\underbrace{\beta V'_{t+1}\left(g(a_{t})\right)g'_{t}(a_{t})}_{\text{gain due to increased savings}}\\
+ & =(1+r)u'(c_{t})+g'_{t}(a)\underbrace{\left(\beta V'_{t+1}\left(g(a_{t})\right)-u'(c_{t})\right)}_{=0\text{ (because of FOC)}}.\\
+ & =(1+r)y'(c_{t}).
 \end{align*}
 
 \end_inset
 
-q.e.d.
+
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
 
-\lang english
-Intuitively 
-\begin_inset Formula $\left(\beta V_{a}\left(g(a_{t})\right)-u'(c_{t})\right)=0$
+\begin_layout Plain Layout
+
+\backslash
+end{proof}
+\end_layout
+
 \end_inset
 
- because the marginal gain of spending is equal the marginal gain of saving at the maximum.
- Therefore shifting this a little bit does not matter for the value function.
- So basically the increase in assets is distributed as utility gain due to increased current consumption and increased future savings,
- but disregarding the distribution over current and future consumption as this gives the same marginal utility at the maximum,
- which is 
+
+\end_layout
+
+\begin_layout Standard
+Intuitively,
+ 
+\begin_inset Formula $\beta V_{t+1}'\!\left(g_{t}(a_{t})\right)-u'(c_{t})=0$
+\end_inset
+
+ because the marginal gain from current spending equals the discounted marginal gain from saving at the optimum.
+ Therefore,
+ shifting a little between the two has no first-order effect on the value function.
+\end_layout
+
+\begin_layout Standard
+An increase in assets provides additional resources that are distributed between current consumption and savings (and thus future consumption).
+ To first order,
+ this distribution does not matter because both uses have the same marginal value at the optimum.
+ One extra unit of assets provides 
+\begin_inset Formula $1+r$
+\end_inset
+
+ extra units of resources,
+ each worth 
+\begin_inset Formula $u'(c_{t})$
+\end_inset
+
+ at the margin,
+ so the increase in value is 
 \begin_inset Formula $(1+r)u'(c_{t})$
 \end_inset
 
