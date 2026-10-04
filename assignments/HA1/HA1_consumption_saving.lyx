@@ -1494,7 +1494,7 @@ with the first order conditions
 
 \begin_inset Formula 
 \[
-\frac{\partial\mathcal{L}}{\partial a_{t+1}}=-(1+n)\lambda_{t}+\lambda_{t+1}R_{t+1}=0\iff\frac{1}{1+n}\lambda_{t+1}R_{t+1}=\lambda_{t}
+\frac{\partial\mathcal{L}}{\partial a_{t+1}}=-(1+n)\lambda_{t}+\lambda_{t+1}R_{t+1}=0\iff\frac{1}{1+n}\lambda_{t+1}R_{t+1}=\lambda_{t},
 \]
 
 \end_inset
@@ -1505,7 +1505,14 @@ with the first order conditions
 \begin_layout Standard
 
 \lang english
-substituting the multipliers for 
+and the (somewhat trivial) intertemporal budget constraints,
+ which are found by differentiation wrt.
+ 
+\begin_inset Formula $\lambda_{t}$
+\end_inset
+
+.
+ Substituting the multipliers for 
 \begin_inset Formula $\lambda_{t}=\beta^{t}(1+n)^{t}c^{-\sigma}_{t}$
 \end_inset
 
@@ -1726,7 +1733,11 @@ Higher depreciation (e.g.
 \begin_inset Formula $z^{ss}$
 \end_inset
 
- increases.
+ decreases in 
+\begin_inset Formula $\delta$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
