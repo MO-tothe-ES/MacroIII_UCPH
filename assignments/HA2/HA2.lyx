@@ -1,0 +1,1107 @@
+#LyX 2.5 created this file. For more info see https://www.lyx.org/
+\lyxformat 643
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+% Assignment details
+\newcommand{\assignmenttitle}{Consumption and Saving}
+\newcommand{\assignmentnumber}{Assignment 1}
+\newcommand{\coursename}{Macroeconomics III}
+\newcommand{\studentname}{Casper Moes}
+\newcommand{\studentid}{hwd362}
+\newcommand{\submissiondate}{3. October 2026}
+
+% Layout and typography
+\usepackage[left=4cm,right=4cm,top=3cm,bottom=3cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools,amssymb}
+\usepackage{amsthm}
+\usepackage{mathpazo} % Palatino text and matching mathematics
+\usepackage{microtype}
+\usepackage{booktabs}
+
+% Theorems and proofs (English labels, regardless of document language)
+\newtheorem{theorem}{Theorem}[section]
+\AddToHook{env/proof/begin}{\renewcommand{\proofname}{Proof}}
+
+\usepackage{setspace}
+\onehalfspacing
+\raggedbottom
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
+\setlength{\emergencystretch}{2em}
+
+% Headings
+\usepackage{titlesec}
+\renewcommand{\thesubsection}{\alph{subsection}}
+\titleformat{\section}
+  {\large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}
+  {\normalsize\bfseries}{\thesubsection)}{0.6em}{}
+\titleformat{\subsubsection}
+  {\normalsize\itshape}{\thesubsubsection}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.5em}{0.4em}
+\titlespacing*{\subsection}{0pt}{1em}{0.25em}
+\titlespacing*{\subsubsection}{0pt}{0.8em}{0.2em}
+
+% Lists and equations
+\usepackage{enumitem}
+\setlist{leftmargin=*,itemsep=0.15em,topsep=0.3em,parsep=0pt}
+\numberwithin{equation}{section}
+
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\newcommand{\R}{\mathbb{R}}
+
+% Optional emphasis for a main result
+\newenvironment{keyresult}
+  {\par\addvspace{0.5em}\noindent\textbf{Key result.}\enspace\ignorespaces}
+  {\par\addvspace{0.5em}\ignorespacesafterend}
+
+% Page numbers and links
+\pagestyle{plain}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\hypersetup{
+  pdftitle={\assignmenttitle},
+  pdfauthor={\studentname},
+  pdfsubject={\coursename\space--\space\assignmentnumber}
+}
+\urlstyle{same}
+
+% Compact automatic title
+\AtBeginDocument{%
+  \begingroup
+    \setstretch{1}
+    \setlength{\parskip}{0pt}
+    \raggedright
+    {\small\coursename\enspace/\enspace\assignmentnumber\par}
+    \vspace{0.6em}
+    {\LARGE\bfseries\assignmenttitle\par}
+    \vspace{0.6em}
+    {\small\studentname\enspace(\studentid)\hfill\submissiondate\par}
+    \vspace{1.5em}
+  \endgroup
+}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children no
+\language danish
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification default
+\crossref_package refstyle
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\backgroundcolor none
+\fontcolor none
+\notefontcolor lightgray
+\boxbgcolor red
+\table_border_color default
+\table_odd_row_color default
+\table_even_row_color default
+\table_alt_row_colors_start 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\docbook_mathml_version 0
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\lang english
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Business cycle empirics and costs
+\end_layout
+
+\begin_layout Subsection
+HP-filtering and business cycles
+\end_layout
+
+\begin_layout Standard
+Using the python package 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+texttt{statsmodels.tsa.filters.hp
+\backslash
+_filter}
+\end_layout
+
+\end_inset
+
+ i implement the HP filter i.e.
+ I decompose each of the 3 dataseries for both countries by defining
+\begin_inset Formula $y_{t}=\tau_{t}+c_{t}$
+\end_inset
+
+,
+ where the trend component 
+\begin_inset Formula $\tau_{t}$
+\end_inset
+
+ solves
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{equation*}
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+min_{
+\backslash
+{
+\backslash
+tau_t
+\backslash
+}_{t=1}^{T}}
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+left
+\backslash
+{
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+sum_{t=1}^{T}(y_t-
+\backslash
+tau_t)^2
+\end_layout
+
+\begin_layout Plain Layout
+    + 
+\backslash
+lambda 
+\backslash
+sum_{t=2}^{T-1}
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+left[(
+\backslash
+tau_{t+1}-
+\backslash
+tau_t)-(
+\backslash
+tau_t-
+\backslash
+tau_{t-1})
+\backslash
+right]^2
+\end_layout
+
+\begin_layout Plain Layout
+    
+\backslash
+right
+\backslash
+},
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{equation*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ indicate the level of regularization i.e.
+ how much volatility of the trend-component is 
+\begin_inset Quotes eld
+\end_inset
+
+punished
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Comparing volatility
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{table}[htbp]
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+label{tab:business_cycle_volatility}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tabular}{lccccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+toprule
+\end_layout
+
+\begin_layout Plain Layout
+Country
+\end_layout
+
+\begin_layout Plain Layout
+& $
+\backslash
+sigma_y$ 
+\end_layout
+
+\begin_layout Plain Layout
+& $
+\backslash
+sigma_c$ 
+\end_layout
+
+\begin_layout Plain Layout
+& $
+\backslash
+sigma_i$ 
+\end_layout
+
+\begin_layout Plain Layout
+& $
+\backslash
+sigma_c/
+\backslash
+sigma_y$ 
+\end_layout
+
+\begin_layout Plain Layout
+& $
+\backslash
+sigma_i/
+\backslash
+sigma_y$ 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+United States & 1.28 & 1.35 & 5.45 & 1.05 & 4.26 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Portugal      & 2.27 & 1.89 & 5.06 & 0.83 & 2.23 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+bottomrule
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+caption{Business Cycle Volatility:
+ United States and Portugal}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+vspace{0.2cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{minipage}{0.95
+\backslash
+linewidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+textit{Note:} Standard deviations are reported in percent,
+\end_layout
+
+\begin_layout Plain Layout
+while ratios are unitless.
+ Cyclical components are obtained
+\end_layout
+
+\begin_layout Plain Layout
+by applying the Hodrick--Prescott filter ($
+\backslash
+lambda_{HP}=1600$)
+\end_layout
+
+\begin_layout Plain Layout
+to logarithmic quarterly series beginning in 1995Q1.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+textit{Sources:} FRED (GDPC1,
+ PCECC96,
+ GPDIC1) for the
+\end_layout
+
+\begin_layout Plain Layout
+United States;
+ Eurostat (namq
+\backslash
+_10
+\backslash
+_gdp) for Portugal.
+\end_layout
+
+\begin_layout Plain Layout
+Own calculations.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{minipage}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{table}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Cost of representative risk 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+label{sec:cost_rep}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First we note that identically distributed shocks gives 
+\begin_inset Formula $\mathbb{E}\left[u\left(\left(1+\epsilon_{t}\right)\bar{c}\right)\right]=\mathbb{E}\left[u\left(\left(1+\epsilon_{t+k}\right)\bar{c}\right)\right],\,k\geq0$
+\end_inset
+
+ implying
+\begin_inset Formula 
+\begin{align*}
+\sum^{\infty}_{t=0}\beta^{t}u\left(\left(1-\lambda_{c}\right)\bar{c}\right) & =\mathbb{E}\left[\sum^{\infty}_{t=0}\beta^{t}u\left(\left(1+\epsilon_{t}\right)\bar{c}\right)\right]\\
+ & =\sum^{\infty}_{t=0}\beta^{t}\mathbb{E}\left[u\left(\left(1+\epsilon_{t}\right)\bar{c}\right)\right]\iff\\
+u\left(\left(1-\lambda_{c}\right)\bar{c}\right) & =\mathbb{E}\left[u\left(\left(1+\epsilon_{t}\right)\bar{c}\right)\right].
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using the CRRA utility specification and isolating 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ this yields
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}\left[\frac{\left[\left(1+\epsilon_{t}\right)\bar{c}\right]^{1-\gamma}-1}{1-\gamma}\right] & =\frac{\left[\left(1-\lambda\right)\bar{c}\right]^{1-\gamma}-1}{1-\gamma}\iff\\
+\mathbb{E}\left[(1+\epsilon_{t})^{1-\gamma}\right] & =\left(1-\lambda\right)^{1-\gamma}\iff\\
+\lambda & =1-\left(\mathbb{E}\left[(1+\epsilon_{t})^{1-\gamma}\right]\right)^{1-\gamma}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using that 
+\begin_inset Formula $\epsilon_{t}$
+\end_inset
+
+ is uniformely distributed and 
+\begin_inset Formula $\epsilon_{t}\in[-\epsilon,\epsilon]$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\begin{align*}
+\sigma_{c} & =\frac{1}{\sqrt{12}}\left[\left(1+\epsilon\right)-\left(1-\epsilon\right)\right]\iff\\
+\epsilon & =\sigma_{c}\frac{\sqrt{12}}{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and using the hint
+\begin_inset Formula 
+\[
+\mathbb{E}\left[(1+\epsilon_{t})^{1-\gamma}\right]=\frac{1}{2\epsilon}\frac{1}{2-\gamma}\left[\left(1+\epsilon\right)^{2-\gamma}-\left(1-\epsilon\right)^{2-\gamma}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+we obtain the final expression for 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ as a function of parameters and the standard deviation of consumption:
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+The intepretation of 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is the share of consumption that the consumer is willing to forego in order to not experience consumption fluctuations compared to the scenario where the they experience uniformly distributed fluctuations with standard deviation 
+\begin_inset Formula $\sigma_{c}.$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\lambda_{c} & =1-\left[\frac{1}{2\epsilon}\frac{1}{2-\gamma}\left[\left(1+\epsilon\right)^{2-\gamma}-\left(1-\epsilon\right)^{2-\gamma}\right]\right]^{1-\gamma}\\
+ & =1-\left[\frac{1}{\sigma_{c}\sqrt{12}}\frac{1}{2-\gamma}\left[\left(1+\sigma_{c}\frac{\sqrt{12}}{2}\right)^{2-\gamma}-\left(1-\sigma_{c}\frac{\sqrt{12}}{2}\right)^{2-\gamma}\right]\right]^{1-\gamma}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The subscript 
+\begin_inset Formula $c$
+\end_inset
+
+ simply indicates that this depends on the country (i.e.
+ USA and Portugal).
+ 
+\end_layout
+
+\begin_layout Standard
+Results are displayed in table 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+ref{tab:welfare_costs}
+\end_layout
+
+\end_inset
+
+ where the first column corresponds to 
+\begin_inset Formula $\gamma=1.99$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{table}[htbp]
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+label{tab:welfare_costs}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{tabular}{lccc}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+toprule
+\end_layout
+
+\begin_layout Plain Layout
+Country
+\end_layout
+
+\begin_layout Plain Layout
+& $
+\backslash
+gamma = 1.99$
+\end_layout
+
+\begin_layout Plain Layout
+& $
+\backslash
+gamma = 4$
+\end_layout
+
+\begin_layout Plain Layout
+& Employment risk ($
+\backslash
+gamma = 2$) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+midrule
+\end_layout
+
+\begin_layout Plain Layout
+United States & 0.0182 & 0.0365 & 1.1875 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+Portugal      & 0.0355 & 0.0714 & 1.1875 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+bottomrule
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{tabular}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+caption{Welfare Costs:
+ United States and Portugal}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+vspace{0.2cm}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+begin{minipage}{0.95
+\backslash
+linewidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+textit{Note:} Costs are reported as the percentage of mean
+\end_layout
+
+\begin_layout Plain Layout
+consumption an individual would give up to eliminate risk.
+\end_layout
+
+\begin_layout Plain Layout
+The first two columns show business cycle costs.
+\end_layout
+
+\begin_layout Plain Layout
+Employment risk assumes consumption of $1.02
+\backslash
+bar{c}$ with
+\end_layout
+
+\begin_layout Plain Layout
+95
+\backslash
+% probability and $0.62
+\backslash
+bar{c}$ with 5
+\backslash
+% probability,
+\end_layout
+
+\begin_layout Plain Layout
+and is identical across countries.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+textit{Sources:} FRED (PCECC96) for the United States;
+\end_layout
+
+\begin_layout Plain Layout
+Eurostat (namq
+\backslash
+_10
+\backslash
+_gdp) for Portugal.
+\end_layout
+
+\begin_layout Plain Layout
+Own calculations.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{minipage}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{table}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Cost of representative risk with higher risk aversion
+\end_layout
+
+\begin_layout Standard
+Looking comparing the two first columns of table 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+ref{tab:welfare_costs}
+\end_layout
+
+\end_inset
+
+ shows how the business cycle risk has increased with 
+\begin_inset Formula $\gamma$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The intuition is simple:
+ larger 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ implyies stronger diminishing marginal utility of consumption.
+ Therefore in booms the agent with 
+\begin_inset Formula $\gamma=4$
+\end_inset
+
+ does not really increase utility and in downturns they heavily decrease utility compared to an agent with a lower 
+\begin_inset Formula $\gamma=1.99$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Cost of unemployment risk
+\end_layout
+
+\begin_layout Standard
+Using the exact same logic as in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+ref{sec:cost_rep}
+\end_layout
+
+\end_inset
+
+ we obtain 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ that makes the consumer indifferent between the two economies:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+begin{equation*}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+lambda
+\end_layout
+
+\begin_layout Plain Layout
+=1-
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+left[
+\end_layout
+
+\begin_layout Plain Layout
+0.95
+\backslash
+left(1+
+\backslash
+frac{
+\backslash
+sigma}{
+\backslash
+sqrt{19}}
+\backslash
+right)^{1-
+\backslash
+gamma}
+\end_layout
+
+\begin_layout Plain Layout
++0.05
+\backslash
+left(1-
+\backslash
+sqrt{19}
+\backslash
+sigma
+\backslash
+right)^{1-
+\backslash
+gamma}
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+right]^{
+\backslash
+frac{1}{1-
+\backslash
+gamma}}.
+\end_layout
+
+\begin_layout Plain Layout
+
+\backslash
+end{equation*}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\backslash
+ref{tab:welfare_costs}
+\end_layout
+
+\end_inset
+
+ displays how the losses are way larger here.
+ The lesson is important:
+ when observing aggregate consumption fluctuations this does not nessesarily reflect the individual fluctuations in consumption since they may somewhat smooth out.
+ i.e.
+ when one person becomes unemployed another becomes employed and vice versa.
+ So in aggregate 
+\begin_inset Formula $\sigma_{c}$
+\end_inset
+
+ is relatively low compared to the idiosyncratic 
+\begin_inset Formula $\sigma_{c,i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Thus our first 
+\emph on
+representative
+\emph default
+ analysis (probably) understates the negative consequences of business cycles.
+ 
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+Note that we assume some level of uninsurable risk that is somewhat independent between individuals such that consumption actually fluctuates more on an individual level than in aggregate.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Multiple choice question
+\end_layout
+
+\begin_layout Subsection
+Ramsey-Cass-Kooperman model
+\end_layout
+
+\begin_layout Subsection
+OLG model
+\end_layout
+
+\begin_layout Subsection
+Real Business Cycle model
+\end_layout
+
+\end_body
+\end_document
